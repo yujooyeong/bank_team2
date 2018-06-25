@@ -99,6 +99,10 @@
 				</div>
 				
 				<div class="navbar">
+					<div class=btn_box>
+						<div class="eff-7"></div>
+						<div class="btn"  OnClick="window.location='bank_index.jsp'">비대면 계좌개설</div>
+					</div>					
 
 					<div class=btn_box>
 						<div class="eff-7"></div>
