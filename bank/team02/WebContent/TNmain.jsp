@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>ì•Œë¦¼ì„¤ì •</title>
 </head>
 <body>
 <%
@@ -27,7 +27,7 @@ while(iter.hasNext()) {
 
 %>
 
-<p>¾Ë¸² °èÁÂ ¼³Á¤</p>
+<p>ì•Œë¦¼ ê³„ì¢Œ ì„¤ì •</p>
 
 
 <form name="form1" method="get" action="TN.jsp">
@@ -38,10 +38,10 @@ while(iter.hasNext()) {
 	}
 %>
 </select>
-<input type="submit" value="Ãß°¡" name="submitbtn">
-<input type="submit" value="»èÁ¦" name="submitbtn">
+<input type="submit" value="ì¶”ê°€" name="submitbtn">
+<input type="submit" value="ì‚­ì œ" name="submitbtn">
 
 </form>
-<button type="button" onclick="location.href='MAINpage.jsp' ">¸ÞÀÎÈ­¸é</button>
+<button type="button" onclick="location.href='MAINpage.jsp' ">ë©”ì¸í™”ë©´</button>
 </body>
 </html>
