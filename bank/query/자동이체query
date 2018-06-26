@@ -1,0 +1,8 @@
+create table autotrans(
+	transdate char(20) NOT NULL,
+	maccount int,
+	bank char(50) NOT NULL,
+	yaccount int NOT NULL,
+	amount int NOT NULL,
+	constraint autofk foreign key(maccount) references "account"(accnum)
+);
