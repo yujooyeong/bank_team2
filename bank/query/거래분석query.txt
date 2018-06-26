@@ -1,0 +1,107 @@
+create table "user"
+(
+	name char(20) NOT NULL primary key,
+	id char(20) UNIQUE,
+	password integer NOT NULL,
+	ATPW integer NOT NULL,
+	authlimit boolean NOT NULL default FALSE,
+	authlimittime timestamp without time zone,
+	joindate date,
+	birth date,
+	job char(50),
+	NFagree boolean NOT NULL,
+	openpermi boolean NOT NULL
+);
+insert into "user" 
+values('testname','testid',0000,1111,2222,false,null,'20180202','19950606','testjob',true,true);
+
+
+create table account
+(
+	accnum int8 NOT NULL primary key,
+	owner char(20),
+	balance int8 default 0,
+	itemname char(50),
+	opendate date,
+	rate real,
+	translimit int8 default 300000,
+	goal char(30),
+	origin char(30),
+	isowner boolean NOT NULL,
+	isagree boolean NOT NULL,
+	constraint accfk foreign key(owner) references "user"(name)
+);
+insert into account 
+values(999999999999,'minji',5000000,'testitem','20180502',0.3,300000,'testgoal','testorigin',true,true);
+
+create table transhistory
+(
+	type char(10) NOT NULL,
+	maccount int8 NOT NULL,
+	bank char(50) NOT NULL,
+	yaccount int8 NOT NULL,
+	amount int8 NOT NULL,
+	date timestamp without time zone NOT NULL,
+	constraint hisfk foreign key(maccount) references "account"(accnum)
+);
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,200000,'20180303');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,200000,'20180304');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,100000,'20180304');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,420000,'20180305');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,260000,'20180305');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,2000,'20180311');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,200000,'20180311');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,2000,'20180315');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,10000,'20180315');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,200400,'20180320');
+insert into transhistory values('입금',999999999999,'부산은행',888888888888,201100,'20180320');
+insert into transhistory values('입금',999999999999,'부산은행',888888888888,92000,'20180322');
+insert into transhistory values('입금',999999999999,'부산은행',888888888888,100000,'20180322');
+insert into transhistory values('입금',999999999999,'부산은행',888888888888,2200000,'20180322');
+insert into transhistory values('입금',999999999999,'부산은행',888888888888,2030000,'20180313');
+insert into transhistory values('입금',999999999999,'부산은행',888888888888,100,'20180313');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,200000,'20180303');
+insert into transhistory values('출금',999999999999,'부산은행',888888888888,200000,'20180304');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,100000,'20180304');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,420000,'20180305');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,260000,'20180305');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,2000,'20180311');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,200000,'20180311');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,2000,'20180315');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,10000,'20180315');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,2000,'20180311');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,200000,'20180311');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,2000,'20180315');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,10000,'20180315');
+insert into transhistory values('출금',999999999999,'국민은행',888888888888,200400,'20180320');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,201100,'20180320');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,92000,'20180322');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,100000,'20180322');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,100000,'20180322');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,2200000,'20180322');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,2030000,'20180313');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,100,'20180313');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,2200000,'20180322');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,2030000,'20180313');
+insert into transhistory values('입금',999999999999,'국민은행',888888888888,100,'20180313'); insert into transhistory values('출금',999999999999,'신한은행',888888888888,2000,'20180311');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,200000,'20180311');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,2000,'20180315');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,10000,'20180315');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,2000,'20180311');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,200000,'20180311');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,2000,'20180315');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,10000,'20180315');
+insert into transhistory values('출금',999999999999,'신한은행',888888888888,200400,'20180320');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,201100,'20180320');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,92000,'20180322');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,100000,'20180322');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,100000,'20180322');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,2200000,'20180322');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,2030000,'20180313');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,100,'20180313');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,2200000,'20180322');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,2030000,'20180313');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,100,'20180313');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,100,'20180313');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,100,'20180313');
+insert into transhistory values('입금',999999999999,'신한은행',888888888888,100,'20180313');
