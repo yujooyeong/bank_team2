@@ -69,10 +69,9 @@ public class UserDAO {
 
 			boolean uNFagree=rs.getBoolean("nfagree");
 			boolean uOpenpermi=rs.getBoolean("openpermi");
-			System.out.println("openpermi:"+uOpenpermi);
-			System.out.println("nfagree:"+uNFagree);
-			
-			if(uNFagree && uOpenpermi)
+			boolean uauthlimit=rs.getBoolean("authlimit");
+						
+			if(uNFagree && uOpenpermi && !uauthlimit)
 				result=true;
 			
 			st.close();
